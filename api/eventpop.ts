@@ -1,15 +1,15 @@
+import Cors from "cors";
 import * as admin from "firebase-admin";
 import "google-application-credentials-base64";
+import { initMiddleware } from "init-middleware";
 import * as jwt from "jsonwebtoken";
 
 admin.initializeApp();
 
-export default async function (req, res) {
-  // CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+const cors = initMiddleware(Cors());
 
+export default async function (req, res) {
+  await cors(req, res);
   const idToken = String(req.body.idToken);
   try {
     const result = jwt.verify(
