@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "vercel": "^34.2.0"
+  },
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "firebase-admin": "~7.0.0",
+    "google-application-credentials-base64": "^0.0.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "scripts": {
+    "vercel-build": "true"
+  }
+}
